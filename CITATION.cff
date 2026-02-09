@@ -11,15 +11,16 @@ title: "Alpha Asymmetry in Foreign Exchange Markets: An Investigation of Exploit
 version: "1.0.0"
 date-released: "2025-12-01"
 license: "CC-BY-4.0"
-doi: "10.5281/zenodo.17918374"
+doi: "10.2139/ssrn.6147567"
 url: "https://dissensus.ai"
+repository-code: "https://github.com/studiofarzulla/alpha-asymmetry"
 keywords:
   - foreign exchange
   - alpha asymmetry
-  - market microstructure
-  - FX markets
   - exploitability
-  - financial economics
+  - FX markets
+  - trading signals
+  - null result
 preferred-citation:
   type: article
   authors:
@@ -28,6 +29,5 @@ preferred-citation:
       orcid: "https://orcid.org/0009-0002-7164-8704"
   title: "Alpha Asymmetry in Foreign Exchange Markets: An Investigation of Exploitability"
   year: 2025
-  doi: "10.5281/zenodo.17918374"
-  publisher:
-    name: "SSRN"
+  doi: "10.2139/ssrn.6147567"
+  journal: "SSRN Electronic Journal"
