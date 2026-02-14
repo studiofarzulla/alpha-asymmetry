@@ -2,7 +2,7 @@
 
 **WP Number:** DAI-2605
 **Status:** SSRN preprint (SSRN:6147567)
-**DOI:** 10.5281/zenodo.17918374
+**DOI:** 10.5281/zenodo.18638785 (concept: 10.5281/zenodo.18638784)
 **Canonical:** `paper/alpha-asymmetry.tex`
 **Bib:** `paper/references.bib`
 

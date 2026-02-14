@@ -2,9 +2,9 @@
 
 **An Investigation of Exploitability**
 
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.17918373-blue.svg)](https://doi.org/10.5281/zenodo.17918373)
+[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.18638784-blue.svg)](https://doi.org/10.5281/zenodo.18638784)
 [![License: CC BY 4.0](https://img.shields.io/badge/License-CC_BY_4.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![Status](https://img.shields.io/badge/Status-Preprint-green.svg)](https://doi.org/10.5281/zenodo.17918373)
+[![Status](https://img.shields.io/badge/Status-Preprint-green.svg)](https://doi.org/10.5281/zenodo.18638784)
 
 **Working Paper DAI-2605** | [Dissensus AI](https://dissensus.ai)
 
@@ -61,7 +61,7 @@ alpha-asymmetry/
 
 ## Zenodo
 
-The paper is archived on Zenodo: [10.5281/zenodo.17918373](https://doi.org/10.5281/zenodo.17918373) (concept DOI)
+The paper is archived on Zenodo: [10.5281/zenodo.18638784](https://doi.org/10.5281/zenodo.18638784) (concept DOI)
 
 ## Citation
 
@@ -71,7 +71,7 @@ The paper is archived on Zenodo: [10.5281/zenodo.17918373](https://doi.org/10.52
   title   = {Alpha Asymmetry in Foreign Exchange Markets: An Investigation of Exploitability},
   year    = {2026},
   journal = {Dissensus AI Working Paper DAI-2605},
-  doi     = {10.5281/zenodo.17918373}
+  doi     = {10.5281/zenodo.18638784}
 }
 ```
 
@@ -83,7 +83,7 @@ The paper is archived on Zenodo: [10.5281/zenodo.17918373](https://doi.org/10.52
 
 ## Links
 
-- **Paper (Zenodo):** [10.5281/zenodo.17918373](https://doi.org/10.5281/zenodo.17918373)
+- **Paper (Zenodo):** [10.5281/zenodo.18638784](https://doi.org/10.5281/zenodo.18638784)
 - **Paper (SSRN):** [SSRN:6147567](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6147567)
 - **Code (GitHub):** [github.com/studiofarzulla/alpha-asymmetry](https://github.com/studiofarzulla/alpha-asymmetry)
 - **ASCRI Programme:** [systems.ac/3/DAI-2605](https://systems.ac/3/DAI-2605)

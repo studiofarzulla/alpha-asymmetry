@@ -14,6 +14,16 @@ license: "CC-BY-4.0"
 doi: "10.2139/ssrn.6147567"
 url: "https://dissensus.ai"
 repository-code: "https://github.com/studiofarzulla/alpha-asymmetry"
+identifiers:
+  - type: doi
+    value: "10.2139/ssrn.6147567"
+    description: "SSRN preprint"
+  - type: doi
+    value: "10.5281/zenodo.18638784"
+    description: "Zenodo archive (concept DOI, resolves to latest version)"
+  - type: doi
+    value: "10.5281/zenodo.18638785"
+    description: "Zenodo archive (v2.0.0)"
 keywords:
   - foreign exchange
   - alpha asymmetry

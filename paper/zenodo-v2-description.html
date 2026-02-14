@@ -1,0 +1,35 @@
+<h3>Abstract</h3>
+<p>This paper investigates whether distributional asymmetries in foreign exchange alpha signals represent exploitable market inefficiencies. Using EUR/JPY data spanning November 2015&ndash;August 2025 (504 weekly observations after rolling window warmup), we document statistically significant departures from normality across five alpha types, with pronounced right-skewness in tail alpha (5.05) and momentum signals (2.12). However, we find that these asymmetries do not translate to economically significant trading profits.</p>
+<p>The GPD shape parameter is not significantly different from zero (&xi; = &minus;0.23, 95% CI: [&minus;1.79, 0.24]), indicating asymmetry arises from outlier frequency rather than heavy tails. Strategy returns include zero in confidence intervals after HAC correction; cross-market validation fails for equities and commodities; and transaction costs eliminate the modest gross edge. We conclude that alpha signal asymmetry, while statistically detectable, does not constitute an exploitable market inefficiency in FX markets.</p>
+
+<h3>Key Findings</h3>
+<ul>
+<li><strong>Null result:</strong> Alpha signal asymmetry does not survive the transition from statistical to economic significance</li>
+<li><strong>No heavy tails:</strong> GPD shape parameter &xi; &asymp; 0 &mdash; asymmetry from outlier frequency, not fat tails</li>
+<li><strong>No cross-market transfer:</strong> EUR/JPY patterns do not generalize to equities (SPY) or commodities (GLD)</li>
+<li><strong>Transaction costs fatal:</strong> Modest gross edge eliminated by realistic execution costs</li>
+<li><strong>Skewness detected:</strong> Tail alpha (5.05), fast alpha (2.12), pricing alpha (1.53) &mdash; all significant</li>
+</ul>
+
+<h3>Alpha Types Analyzed</h3>
+<ul>
+<li><strong>Tail Alpha:</strong> Extreme return signals from tail events (skewness: 5.05)</li>
+<li><strong>Fast Alpha:</strong> Short-horizon momentum signals (skewness: 2.12)</li>
+<li><strong>Pricing Alpha:</strong> Deviation from fair-value estimates (skewness: 1.53)</li>
+<li><strong>Coverage Alpha:</strong> Analyst coverage and attention effects (skewness: 0.87)</li>
+<li><strong>Hedge Alpha:</strong> Risk-adjusted hedging signals (skewness: 0.45)</li>
+</ul>
+
+<h3>Methodology</h3>
+<p>EUR/JPY forex data (Yahoo Finance EURJPY=X), November 2015&ndash;August 2025. Five pre-computed alpha signals analyzed using Jarque&ndash;Bera normality tests, Generalized Pareto Distribution (GPD) tail analysis, asymmetry-based backtesting with Newey&ndash;West HAC standard errors, and cross-market validation on SPY and GLD. JEL codes: G11, G14, G15, C58.</p>
+
+<h3>Why This Matters</h3>
+<p>This is a <strong>null result paper</strong>. We document a plausible-sounding trading idea that does not survive rigorous testing. Such findings are underreported in quantitative finance (Harvey, 2017), yet they prevent wasted research effort and capital allocation to spurious patterns.</p>
+
+<h3>Links</h3>
+<ul>
+<li>SSRN: <a href="https://papers.ssrn.com/sol3/papers.cfm?abstract_id=6147567">SSRN:6147567</a></li>
+<li>Code &amp; Data: <a href="https://github.com/studiofarzulla/alpha-asymmetry">github.com/studiofarzulla/alpha-asymmetry</a></li>
+<li>ASCRI Programme: <a href="https://systems.ac/3/DAI-2605">systems.ac/3/DAI-2605</a></li>
+<li>Research Lab: <a href="https://dissensus.ai">Dissensus AI</a></li>
+</ul>
