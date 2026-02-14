@@ -8,8 +8,8 @@ authors:
     email: "murad@dissensus.ai"
     affiliation: "Dissensus AI"
 title: "Alpha Asymmetry in Foreign Exchange Markets: An Investigation of Exploitability"
-version: "1.0.0"
-date-released: "2025-12-01"
+version: "2.0.0"
+date-released: "2026-01-01"
 license: "CC-BY-4.0"
 doi: "10.2139/ssrn.6147567"
 url: "https://dissensus.ai"
@@ -28,6 +28,6 @@ preferred-citation:
       given-names: "Murad"
       orcid: "https://orcid.org/0009-0002-7164-8704"
   title: "Alpha Asymmetry in Foreign Exchange Markets: An Investigation of Exploitability"
-  year: 2025
+  year: 2026
   doi: "10.2139/ssrn.6147567"
   journal: "SSRN Electronic Journal"

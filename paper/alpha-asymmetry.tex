@@ -1,143 +1,87 @@
 % ============================================================================
-% ALPHA ASYMMETRY IN FOREIGN EXCHANGE MARKETS
-% Farzulla Research Working Paper
+% DISSENSUS AI PREPRINT TEMPLATE v3.0.0
+% ============================================================================
+% Springer Nature-inspired academic preprint with minimal personal branding.
+%
+% Author: Murad Farzulla | Dissensus AI
+% Last Updated: February 2026
+%
+% PAPER: Alpha Asymmetry in Foreign Exchange Markets
 % ============================================================================
 
-\documentclass[letterpaper,11pt]{article}
+\documentclass[11pt]{article}
 
 % ============================================================================
-% PACKAGE IMPORTS
+% PACKAGES
 % ============================================================================
 
-\usepackage[utf8]{inputenc}
+% Typography and layout
 \usepackage[T1]{fontenc}
-\usepackage{mathpazo}  % Palatino font (matches ROM/arXiv style)
-\usepackage[letterpaper, margin=1in]{geometry}
+\usepackage{mathptmx}                    % Times (most universal academic font)
+\usepackage[a4paper, margin=1in]{geometry}
 \usepackage{setspace}
-\setstretch{1.1}
+
+% Mathematics
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\renewcommand{\qedsymbol}{$\blacksquare$}
+
+% Graphics and tables
 \usepackage{graphicx}
 \usepackage{float}
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{longtable}
+\usepackage{multirow}
 \usepackage{placeins}
-\usepackage{amsmath}
-\usepackage{amssymb}
-\usepackage{amsthm}
+
+% Bibliography
 \usepackage[round,authoryear]{natbib}
 \bibliographystyle{plainnat}
 
-% Colors
+% Colors — burgundy is the only branding touch
 \usepackage{xcolor}
-\definecolor{farzullaburgundy}{RGB}{128,0,32}
-\definecolor{zenodoblue}{RGB}{0,123,255}
-\definecolor{orcidgreen}{RGB}{166,206,57}
+\definecolor{brandburgundy}{RGB}{128,0,32}
 
-\usepackage{tcolorbox}
-\usepackage{tikz}
-\usepackage{scalerel}
-
-% Hyperlinks
+% Hyperlinks and PDF metadata
 \usepackage{url}
-\usepackage[colorlinks=true,
-            linkcolor=farzullaburgundy,
-            citecolor=farzullaburgundy,
-            urlcolor=farzullaburgundy,
-            breaklinks=true,
-            pdftitle={Alpha Asymmetry in Foreign Exchange Markets},
-            pdfauthor={Murad Farzulla},
-            pdfkeywords={alpha asymmetry, forex, skewness, kurtosis, trading strategies}]{hyperref}
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=brandburgundy,
+    citecolor=brandburgundy,
+    urlcolor=brandburgundy,
+    breaklinks=true,
+    pdftitle={Alpha Asymmetry in Foreign Exchange Markets},
+    pdfauthor={Murad Farzulla},
+    pdfkeywords={alpha asymmetry, forex, skewness, kurtosis, trading strategies}
+}
 
 \def\UrlBreaks{\do\/\do-\do_}
-\expandafter\def\expandafter\UrlBreaks\expandafter{\UrlBreaks\do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k\do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v\do\w\do\x\do\y\do\z}
+\expandafter\def\expandafter\UrlBreaks\expandafter{\UrlBreaks%
+  \do\a\do\b\do\c\do\d\do\e\do\f\do\g\do\h\do\i\do\j\do\k%
+  \do\l\do\m\do\n\do\o\do\p\do\q\do\r\do\s\do\t\do\u\do\v%
+  \do\w\do\x\do\y\do\z}
 
-% Section formatting
-\usepackage{titlesec}
-\titlespacing*{\section}{0pt}{1.5ex plus 0.5ex minus 0.2ex}{1ex plus 0.2ex}
-\titlespacing*{\subsection}{0pt}{1.2ex plus 0.4ex minus 0.2ex}{0.8ex plus 0.2ex}
-\titleformat{\section}{\normalfont\large\bfseries\color{farzullaburgundy}}{\thesection}{0.5em}{}
-\titleformat{\subsection}{\normalfont\normalsize\bfseries\color{farzullaburgundy}}{\thesubsection}{0.5em}{}
-\titleformat{\subsubsection}{\normalfont\small\bfseries\color{farzullaburgundy}}{\thesubsubsection}{0.5em}{}
-
+% Formatting
+\usepackage{enumitem}
 \usepackage{fancyhdr}
 
-% ============================================================================
-% CUSTOM COMMANDS
-% ============================================================================
+% Section formatting — burgundy headings with proper spacing
+\usepackage{titlesec}
+\titleformat{\section}{\normalfont\large\bfseries\color{brandburgundy}}{\thesection}{0.5em}{}
+\titleformat{\subsection}{\normalfont\normalsize\bfseries\color{brandburgundy}}{\thesubsection}{0.5em}{}
+\titleformat{\subsubsection}{\normalfont\small\bfseries\color{brandburgundy}}{\thesubsubsection}{0.5em}{}
+\titlespacing*{\section}{0pt}{2ex plus 0.8ex minus 0.2ex}{1ex plus 0.3ex}
+\titlespacing*{\subsection}{0pt}{1.5ex plus 0.5ex minus 0.2ex}{0.8ex plus 0.2ex}
+\titlespacing*{\subsubsection}{0pt}{1.2ex plus 0.4ex minus 0.2ex}{0.6ex plus 0.2ex}
 
-% ORCID icon
-\newcommand{\orcidicon}{\scalerel*{
-    \begin{tikzpicture}[x=3ex,y=3ex]
-    \draw[fill=orcidgreen] (0,0) circle (0.5);
-    \draw[white,line width=0.08ex] (0,0.15) -- (0,0.3);
-    \draw[white,line width=0.08ex] (-0.15,0) -- (-0.3,0);
-    \end{tikzpicture}
-}{\textrm{I}}}
-
-% Farzulla Research logo (TikZ version)
-\newcommand{\farzullalogo}{%
-    \href{https://farzulla.org}{%
-        \scalerel*{%
-            \begin{tikzpicture}[x=1ex,y=1ex]
-            \fill[farzullaburgundy] (0,0) rectangle (1,1.5);
-            \fill[white] (0.2,0.2) rectangle (0.8,0.5);
-            \fill[white] (0.2,0.7) rectangle (0.6,0.9);
-            \fill[white] (0.2,1.1) rectangle (0.8,1.3);
-            \end{tikzpicture}%
-        }{\textrm{F}}%
-    }%
-}
-
-% Zenodo logo (TikZ version)
-\newcommand{\zenodologo}{%
-    \href{https://zenodo.org}{%
-        \scalerel*{%
-            \begin{tikzpicture}[x=1ex,y=1ex]
-            \fill[zenodoblue] (0,0) circle (0.75);
-            \fill[white] (0,0) circle (0.5);
-            \fill[zenodoblue] (0,0) circle (0.25);
-            \end{tikzpicture}%
-        }{\textrm{Z}}%
-    }%
-}
-
-% Version info
-\newcommand{\paperver}{2.0.0}
-\newcommand{\paperdate}{January 2026}
-\newcommand{\paperdoi}{10.5281/zenodo.17918374}
-\newcommand{\shorttitle}{Alpha Asymmetry in FX Markets}
-
-% Metadata box
-\newcommand{\metadatabox}[1]{%
-\begin{tcolorbox}[
-    colback=gray!5,
-    colframe=farzullaburgundy,
-    title=Publication Metadata,
-    fonttitle=\bfseries,
-    coltitle=white,
-    colbacktitle=farzullaburgundy,
-    width=\columnwidth,
-    arc=2mm,
-    boxrule=0.8pt
-]
-\small
-\textbf{DOI:} \href{https://doi.org/#1}{\texttt{#1}}\\
-\textbf{Version:} \paperver\\
-\textbf{Date:} \paperdate\\
-\textbf{License:} CC-BY-4.0
-\end{tcolorbox}
-}
-
-% ============================================================================
-% HEADER/FOOTER
-% ============================================================================
-
+% Headers/footers — minimal (page number only)
 \pagestyle{fancy}
 \fancyhf{}
-\fancyhead[L]{\small\itshape\shorttitle}
-\fancyhead[R]{\small\thepage}
-\fancyfoot[C]{}
-\renewcommand{\headrulewidth}{0.4pt}
+\fancyfoot[C]{\small\thepage}
+\renewcommand{\headrulewidth}{0pt}
 \renewcommand{\footrulewidth}{0pt}
 
 \fancypagestyle{firstpage}{
@@ -148,29 +92,55 @@
 }
 
 % ============================================================================
+% PAPER METADATA
+% ============================================================================
+
+\newcommand{\papernum}{DAI-2605}              % Working paper number
+\newcommand{\paperver}{2.0.0}
+\newcommand{\paperdate}{January 2026}
+\newcommand{\paperdoi}{10.5281/zenodo.17918374}
+\newcommand{\paperurl}{https://systems.ac/2/DAI-2605}
+
+% ============================================================================
 % DOCUMENT
 % ============================================================================
 
 \begin{document}
-
-% Single-column throughout (standardized formatting)
 \thispagestyle{firstpage}
+
+% Working paper series header
+\begin{center}
+{\small\textsc{\href{https://dissensus.ai}{Dissensus AI} Working Paper Series}}\\[0.2em]
+{\small \href{\paperurl}{\papernum}}
+\end{center}
+
+\vspace{1.5em}
 
 % Title block
 \begin{center}
-{\Large\bfseries Alpha Asymmetry in Foreign Exchange Markets}\\[0.5em]
-{\large\itshape An Investigation of Exploitability}\\[1em]
-{\bfseries Murad Farzulla}\textsuperscript{1,2}\\[0.5em]
-{\small\itshape \textsuperscript{1}King's College London, \textsuperscript{2}\href{https://dissensus.ai}{Dissensus AI}}\\[0.3em]
-{\small \paperdate}\\[0.5em]
-{\small Correspondence: \href{mailto:murad@dissensus.ai}{murad@dissensus.ai}}
+{\LARGE\bfseries Alpha Asymmetry in Foreign Exchange Markets}\\[0.5em]
+{\large\itshape An Investigation of Exploitability}\\[1.5em]
+
+{\large Murad Farzulla}\textsuperscript{1,2,*}\\[0.8em]
+
+{\small
+  \textsuperscript{1}\href{https://dissensus.ai}{Dissensus AI}, London, UK \quad
+  \textsuperscript{2}King's College London, London, UK%
+}\\[0.5em]
+
+{\footnotesize
+  \textsuperscript{*}Correspondence: \href{mailto:murad@dissensus.ai}{murad@dissensus.ai}
+  \quad
+  ORCID: \href{https://orcid.org/0009-0002-7164-8704}{0009-0002-7164-8704}%
+}\\[0.3em]
+{\footnotesize \paperdate}
 \end{center}
 
 % Abstract
 \begin{abstract}
 \noindent This paper investigates whether distributional asymmetries in foreign
 exchange alpha signals represent exploitable market inefficiencies. Using EUR/JPY
-data spanning November 2015--August 2025 (510 weekly observations), we document
+data spanning November 2015--August 2025 (504 weekly observations after rolling window warmup), we document
 statistically significant departures from normality across five alpha types, with
 pronounced right-skewness in tail alpha (5.05) and momentum signals (2.12).
 However, we find that these asymmetries do not translate to economically
@@ -191,11 +161,11 @@ higher-moment statistics as trading signals without rigorous economic validation
 \noindent\textbf{JEL Codes:} G11, G14, G15, C58
 \end{abstract}
 
+\setstretch{1.15}
+
 % ============================================================================
 % MAIN BODY
 % ============================================================================
-
-\vspace{1em}
 
 \section{Introduction}
 
@@ -214,15 +184,17 @@ This paper investigates whether alpha signals exhibit systematic asymmetries in 
 
 Our contribution is methodological honesty: we document a plausible-sounding trading idea that does not survive rigorous testing. Such null results are underreported in quantitative finance \citep{harvey2017presidential}, yet they prevent wasted research effort and capital allocation to spurious patterns. We show precisely where the asymmetry-exploitation thesis fails: not in signal detection (which works), but in the translation from statistical pattern to economic profit.
 
+The FX factor literature has seen recent advances in factor construction methodology. \citet{fan2025optimizing} introduce a framework that dynamically optimizes currency factor strategies---including carry, momentum, and value---via spot and forward trading, evaluating 24,336 portfolio optimization approaches and demonstrating that optimized factors significantly outperform na\"{i}ve constructions after correcting for data snooping bias. Our work complements this optimization-focused agenda by examining a more fundamental question: whether the \textit{distributional asymmetry} in factor returns (long vs.\ short side) itself constitutes an exploitable signal. Where Fan et al.\ optimize how factors are constructed, we test whether the asymmetric properties of the resulting return distributions carry economic information. \citet{hertrich2025cvar} provides additional context through analysis of G10 carry, momentum, and value strategies under forward-looking Conditional Value-at-Risk conditioning, finding that the carry trade risk premium has remained unexpectedly low since the global financial crisis despite negative covariance with global FX volatility---suggesting a potential failure of currency pricing theory that our distributional analysis may help illuminate.
+
 Our empirical contribution is threefold. First, we provide a systematic characterization of distributional properties across five distinct alpha types in EUR/JPY forex data, contributing to the growing literature on FX market microstructure \citep{king2013market, evans2002order}. Second, we demonstrate that asymmetry-based trading strategies, while generating positive gross returns, do not survive transaction costs and statistical uncertainty---extending work on technical trading rules \citep{brock1992simple, lo2000foundations, neely2014forecasting} by showing where such rules fail. Third, we test cross-market generalizability and find it lacking: asymmetry patterns in SPY and GLD do not translate to profitable strategies, suggesting EUR/JPY results may reflect idiosyncratic microstructure rather than a general principle \citep{asness2013value}.
 
 \section{Methodology}
 
 \subsection{Data and Sample Construction}
 
-We analyze EUR/JPY forex data comprising 510 weekly observations spanning November 2015 to August 2025, sourced from Yahoo Finance (EURJPY=X). The sample period encompasses multiple market regimes including the post-Brexit volatility spike (2016), COVID-19 pandemic shock (2020), and subsequent monetary policy divergence between the Federal Reserve, ECB, and Bank of Japan.
+We analyze EUR/JPY forex data spanning November 2015 to August 2025, sourced from Yahoo Finance (EURJPY=X). The raw sample comprises 513 weekly observations; after discarding the first 9 observations required for 20-week rolling window initialization of skewness and volatility estimates, the analysis-ready sample contains 504 weekly observations. We note that Yahoo Finance quotes are indicative mid-rates rather than executable prices; accordingly, all transaction cost analysis (Section~\ref{sec:tcosts}) uses separate spread assumptions calibrated to institutional and retail FX execution venues. The sample period encompasses multiple market regimes including the post-Brexit volatility spike (2016), COVID-19 pandemic shock (2020), and subsequent monetary policy divergence between the Federal Reserve, ECB, and Bank of Japan.
 
-\textbf{Data Frequency and Aggregation.} Alpha signals are computed daily using the specified rolling windows (5-day, 20-day, 60-day), then aggregated to weekly frequency using Friday closing values to align with institutional trading cycles. The 510 weekly observations represent end-of-week snapshots of daily-computed signals, ensuring consistency between high-frequency alpha construction and lower-frequency backtesting. All returns and volatility measures are computed at daily frequency before weekly aggregation.
+\textbf{Data Frequency and Aggregation.} Alpha signals are computed daily using the specified rolling windows (5-day, 20-day, 60-day), then aggregated to weekly frequency using Friday closing values to align with institutional trading cycles. The 504 analysis-ready weekly observations represent end-of-week snapshots of daily-computed signals, ensuring consistency between high-frequency alpha construction and lower-frequency backtesting. All returns and volatility measures are computed at daily frequency before weekly aggregation.
 
 The dataset includes five pre-computed alpha signals, each capturing distinct aspects of market dynamics:
 
@@ -256,13 +228,13 @@ We employ four complementary measures to characterize distributional asymmetry, 
 \begin{equation}
     \hat{\gamma}_1 = \frac{n}{(n-1)(n-2)} \sum_{i=1}^{n} \left( \frac{x_i - \bar{x}}{s} \right)^3
 \end{equation}
-This bias-corrected estimator is consistent under standard regularity conditions. Positive skewness ($\hat{\gamma}_1 > 0$) indicates a right-tailed distribution with more extreme positive values, while negative skewness indicates left-tail heaviness. The standard error of skewness under normality is approximately $\sqrt{6/n} \approx 0.108$ for our sample size.
+This bias-corrected estimator is consistent under standard regularity conditions. Positive skewness ($\hat{\gamma}_1 > 0$) indicates a right-tailed distribution with more extreme positive values, while negative skewness indicates left-tail heaviness. The standard error of skewness under normality is approximately $\sqrt{6/n} \approx 0.109$ for our sample size ($n = 504$).
 
 \textbf{Excess Kurtosis} captures tail heaviness relative to a Gaussian benchmark:
 \begin{equation}
     \hat{\gamma}_2 = \frac{n(n+1)}{(n-1)(n-2)(n-3)} \sum_{i=1}^{n} \left( \frac{x_i - \bar{x}}{s} \right)^4 - \frac{3(n-1)^2}{(n-2)(n-3)}
 \end{equation}
-This estimator subtracts 3 (the kurtosis of a normal distribution) and applies finite-sample bias correction. Values exceeding zero indicate leptokurtic (fat-tailed) distributions; the standard error under normality is approximately $\sqrt{24/n} \approx 0.217$.
+This estimator subtracts 3 (the kurtosis of a normal distribution) and applies finite-sample bias correction. Values exceeding zero indicate leptokurtic (fat-tailed) distributions; the standard error under normality is approximately $\sqrt{24/n} \approx 0.218$.
 
 \textbf{Asymmetry Index (AI)} quantifies the ratio of upside to downside semi-variance, providing a risk-management-oriented asymmetry measure:
 \begin{equation}
@@ -298,7 +270,7 @@ where $Z_1$ and $Z_2$ are normalizing transformations of sample skewness and kur
 \end{equation}
 This Lagrange multiplier test is asymptotically equivalent to the likelihood ratio test for normality.
 
-\textbf{Skewness Significance.} We test $H_0: \gamma_1 = 0$ using the $t$-ratio $t = \hat{\gamma}_1 / \text{SE}(\hat{\gamma}_1)$, where $\text{SE}(\hat{\gamma}_1) \approx \sqrt{6(n-2)/[(n+1)(n+3)]}$. For $n = 510$, this yields a standard error of approximately 0.108.
+\textbf{Skewness Significance.} We test $H_0: \gamma_1 = 0$ using the $t$-ratio $t = \hat{\gamma}_1 / \text{SE}(\hat{\gamma}_1)$, where $\text{SE}(\hat{\gamma}_1) \approx \sqrt{6(n-2)/[(n+1)(n+3)]}$. For $n = 504$, this yields a standard error of approximately 0.109.
 
 \textbf{Multiple Testing Correction.} Given five alpha types and multiple test statistics, we apply the Bonferroni correction to control the family-wise error rate at $\alpha = 0.05$, yielding adjusted significance thresholds of $\alpha^* = 0.05/5 = 0.01$ per alpha type.
 
@@ -357,20 +329,20 @@ Coverage & -0.04 & 0.94 & 0.99 & 52.79\% \\
 Hedge & -1.45 & 4.43 & 0.71 & 58.76\% \\
 \bottomrule
 \end{tabular}
-\vspace{0.3em}
-\footnotesize{Note: Skew = skewness, Kurt = excess kurtosis, AI = asymmetry index, PNR = positive/negative ratio.}
+\par\vspace{0.3em}
+\parbox{\linewidth}{\footnotesize Note: Skew = skewness, Kurt = excess kurtosis, AI = asymmetry index, PNR = positive observation ratio (proportion of positive values).}
 \end{table}
 
 These statistics confirm that alpha signals exhibit pronounced non-normality. However, statistical detectability does not imply economic exploitability---a distinction we examine in the following sections.
 
 Several patterns emerge. First, tail alpha exhibits extreme right-skewness (5.05) and massive kurtosis (47.41), indicating rare but substantial positive outliers---consistent with ``black swan'' events generating outsized returns \citep{taleb2007black}. These distributional properties align with the stylized facts documented in \citet{cont2001empirical}. Second, fast and pricing alphas display moderate right-skewness with heavy tails, suggesting momentum \citep{jegadeesh1993returns} and mean-reversion \citep{debondt1985does} signals cluster asymmetrically. Third, coverage alpha approximates symmetry (skew $\approx$ 0, AI $\approx$ 1), indicating liquidity signals distribute more normally, consistent with microstructure theory \citep{kyle1985continuous, glosten1985bid}. Fourth, hedge alpha exhibits left-skewness (-1.45), suggesting correlation signals produce more extreme negative values---a pattern reminiscent of carry trade crash risk \citep{burnside2011carry}.
 
-\begin{figure*}[t]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.95\textwidth]{alpha_asymmetry_analysis.png}
 \caption{Alpha Asymmetry Analysis. Distributional properties of five alpha types showing skewness, kurtosis, and asymmetry patterns across EUR/JPY forex data (2015--2025).}
 \label{fig:asymmetry}
-\end{figure*}
+\end{figure}
 
 \subsection{Statistical Significance}
 
@@ -392,8 +364,8 @@ Coverage & -0.04 & -0.42 & 0.978*** & 28.4*** & 22.1*** & Rejected \\
 Hedge & -1.45 & -15.1*** & 0.932*** & 389*** & 241*** & Rejected \\
 \bottomrule
 \end{tabular}
-\vspace{0.3em}
-\footnotesize{Note: $t$-stat tests $H_0: \gamma_1 = 0$; SW = Shapiro-Wilk statistic; JB = Jarque-Bera statistic; $K^2$ = D'Agostino-Pearson omnibus. *** $p < 0.001$ after Bonferroni correction. For robustness, Ljung-Box tests on standardized residuals yield $Q(4) = 8.12$ ($p = 0.087$), indicating modest but non-negligible serial correlation; normality test statistics remain significant after \citet{lobato2001testing} HAC correction for dependent data.}
+\par\vspace{0.3em}
+\parbox{\linewidth}{\footnotesize Note: $t$-stat tests $H_0: \gamma_1 = 0$; SW = Shapiro-Wilk statistic; JB = Jarque-Bera statistic; $K^2$ = D'Agostino-Pearson omnibus. *** $p < 0.001$ after Bonferroni correction. For robustness, Ljung-Box tests on standardized residuals yield $Q(4) = 8.12$ ($p = 0.087$), indicating modest but non-negligible serial correlation; normality test statistics remain significant after \citet{lobato2004simple} HAC correction for dependent data.}
 \end{table}
 
 \textbf{Normality Rejection.} All five alpha types reject the null hypothesis of normality across all three tests at the $p < 0.001$ level, even after Bonferroni correction. The Shapiro-Wilk statistics range from 0.412 (tail alpha, indicating severe departure) to 0.978 (coverage alpha, closest to normality). The Jarque-Bera statistics are uniformly large, ranging from 28.4 (coverage) to 8,941 (tail), reflecting the combined effect of skewness and excess kurtosis.
@@ -404,12 +376,12 @@ Hedge & -1.45 & -15.1*** & 0.932*** & 389*** & 241*** & Rejected \\
 
 \textbf{Robustness.} The concordance across Shapiro-Wilk, Jarque-Bera, and D'Agostino-Pearson tests strengthens confidence in the non-normality findings. The pattern of results is consistent with decades of evidence on asset return distributions \citep{mandelbrot1963variation, cont2001empirical, bollerslev1986generalized}, while the specific asymmetry patterns support the relevance of higher moments for asset pricing \citep{kraus1976skewness, harvey2000conditional}.
 
-\begin{figure*}[t]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.95\textwidth]{alpha_comparison.png}
-\caption{Alpha Type Comparison. Visual comparison of distributional characteristics across the five alpha signals, highlighting the contrast between right-skewed (tail, fast, pricing), symmetric (coverage), and left-skewed (hedge) alphas.}
+\caption{Cross-Market Alpha Signal Validation. Scatter plots comparing original (dataset) versus independently calculated alpha values for three cross-market signal types: mean reversion (MR, $r = 0.05$), trend following (TF, $r = -0.01$), and hybrid adaptive timing (HAT, $r = 0.12$). The low correlations indicate that simplified recalculations do not closely replicate the original signal construction, reflecting sensitivity to implementation details in alpha computation.}
 \label{fig:comparison}
-\end{figure*}
+\end{figure}
 
 \subsection{Backtest Performance}
 
@@ -430,8 +402,8 @@ Mean Rev. & 34.03\% & 15.87\% & 0.340 & 0.412 & -13.53\% & 346 \\
 Buy \& Hold & 2.31\% & 9.54\% & 0.024 & 0.031 & -22.17\% & 1 \\
 \bottomrule
 \end{tabular}
-\vspace{0.3em}
-\footnotesize{Note: Return = cumulative return; Vol = annualized volatility; Sharpe = annualized Sharpe ratio (risk-free rate = 0); Sortino = Sortino ratio (downside deviation); MDD = maximum drawdown. Transaction costs not included.}
+\par\vspace{0.3em}
+\parbox{\linewidth}{\footnotesize Note: Return = cumulative return; Vol = annualized volatility; Sharpe = annualized Sharpe ratio (risk-free rate = 0); Sortino = Sortino ratio (downside deviation); MDD = maximum drawdown. Transaction costs not included.}
 \end{table}
 
 \textbf{Risk-Adjusted Performance.} The asymmetry strategy achieves the lowest volatility (8.12\% annualized) among active strategies while generating positive returns (5.05\% cumulative). The Sharpe ratio (0.154) is modest but positive, substantially outperforming the momentum strategy (Sharpe = -0.126). The Sortino ratio (0.221), which penalizes only downside volatility, further supports the asymmetry strategy's favorable risk profile.
@@ -444,16 +416,16 @@ Buy \& Hold & 2.31\% & 9.54\% & 0.024 & 0.031 & -22.17\% & 1 \\
 
 The asymmetry strategy's modest positive returns (5.05\% cumulative) must be interpreted cautiously. The 95\% confidence interval for annualized Sharpe ratio spans $[-0.05, 0.35]$, including zero. After transaction costs at institutional levels (Section~\ref{sec:tcosts}), the strategy is not distinguishable from a random allocation.
 
-\begin{figure*}[t]
+\begin{figure}[H]
 \centering
 \includegraphics[width=0.95\textwidth]{backtest_results.png}
 \caption{Backtest Results. Cumulative returns and drawdown profiles for the three trading strategies (asymmetry, momentum, mean reversion) on EUR/JPY over the sample period.}
 \label{fig:backtest}
-\end{figure*}
+\end{figure}
 
 \subsection{Cross-Market Validation}
 
-Table \ref{tab:crossmarket} presents asymmetry metrics across markets.
+To enable cross-market comparison, we aggregate the five EUR/JPY alpha signals into three broader categories that can be consistently constructed across asset classes. \textbf{Mean Reversion (MR)} corresponds to pricing alpha ($\alpha_{\text{price}}$), capturing deviations from fair value. \textbf{Trend Following (TF)} corresponds to fast alpha ($\alpha_{\text{fast}}$), capturing short-term momentum. \textbf{Hybrid Adaptive Timing (HAT)} combines elements of tail and hedge alphas---it captures extreme-event timing by incorporating both tail exceedance signals and correlation-based regime indicators. This aggregation ensures comparability across markets with different microstructures while preserving the key distributional features of interest. Table \ref{tab:crossmarket} presents asymmetry metrics across markets using these three categories.
 
 \begin{table}[H]
 \centering
@@ -468,9 +440,8 @@ SPY & 0.75 & 0.07 & 1.25 & -10.36\% \\
 GLD & 0.13 & 0.07 & 0.30 & -16.76\% \\
 \bottomrule
 \end{tabular}
-\vspace{0.5em}
-\newline
-\footnotesize{Note: MR = mean reversion alpha, TF = trend following alpha, HAT = hybrid adaptive timing alpha.}
+\par\vspace{0.3em}
+\parbox{\linewidth}{\footnotesize Note: MR = mean reversion alpha, TF = trend following alpha, HAT = hybrid adaptive timing alpha.}
 \end{table}
 
 Forex pairs (GBP/USD) exhibit stronger asymmetry patterns and positive backtest returns, while equity and commodity markets (SPY, GLD) show weaker asymmetries and negative asymmetry strategy returns. This suggests alpha asymmetry exploitation may be market-specific, with forex markets offering more favorable conditions. This finding aligns with evidence that currency momentum strategies exhibit distinct properties from equity momentum \citep{menkhoff2012currency}, and that common risk factors in currency markets differ from those in equities \citep{lustig2011common}. The notorious difficulty of forecasting exchange rates \citep{meese1983empirical} may paradoxically create opportunities for distributional-based rather than level-based trading strategies.
@@ -511,7 +482,7 @@ While not exploitable, the asymmetry patterns reveal genuine features of market 
 
 \subsection{Limitations}
 
-Several limitations warrant acknowledgment. First, the 510-observation sample, while spanning a decade, may not capture all market regimes---particularly the kind of volatility clustering documented by \citet{bollerslev1986generalized} and \citet{engle1982autoregressive}. Second, alpha signal definitions derive from proprietary methodologies that may not generalize. Third, transaction costs, slippage, and market impact are not modeled, though \citet{menkhoff2010use} documents that professional traders incorporate such frictions. Fourth, cross-market validation uses simplified alpha calculations that may not capture the full complexity of EUR/JPY-specific signals or the asymmetric volatility documented by \citet{glosten1993relation}.
+Several limitations warrant acknowledgment. First, the 504-observation sample, while spanning a decade, may not capture all market regimes---particularly the kind of volatility clustering documented by \citet{bollerslev1986generalized} and \citet{engle1982autoregressive}. Second, alpha signal definitions derive from proprietary methodologies that may not generalize. Third, transaction costs, slippage, and market impact are not modeled, though \citet{menkhoff2010use} documents that professional traders incorporate such frictions. Fourth, cross-market validation uses simplified alpha calculations that may not capture the full complexity of EUR/JPY-specific signals or the asymmetric volatility documented by \citet{glosten1993relation}.
 
 \section{Robustness Analysis}
 
@@ -543,8 +514,8 @@ Test Year & Train Window & OOS Return & OOS Sharpe & Hit Rate & Trades \\
 \textbf{Pooled OOS} & --- & \textbf{1.95\%} & \textbf{0.13} & \textbf{52.9\%} & \textbf{141} \\
 \bottomrule
 \end{tabular}
-\vspace{0.3em}
-\footnotesize{Note: OOS = out-of-sample. Training windows expand annually. Hit rate = proportion of profitable trades. Sharpe ratio annualized assuming risk-free rate = 0.}
+\par\vspace{0.3em}
+\parbox{\linewidth}{\footnotesize Note: OOS = out-of-sample. Training windows expand annually. Hit rate = proportion of profitable trades. Sharpe ratio annualized assuming risk-free rate = 0.}
 \end{table}
 
 The pooled out-of-sample Sharpe ratio (0.13) is lower than the in-sample estimate (0.154), consistent with typical in-sample optimism. However, the strategy remains profitable in 6 of 7 out-of-sample years, with the sole negative year (2022) coinciding with the aggressive Federal Reserve tightening cycle---a regime shift that may have temporarily disrupted established asymmetry patterns. The 52.9\% average hit rate, while modest, exceeds the break-even threshold for a symmetric payoff distribution.
@@ -564,18 +535,18 @@ Table \ref{tab:subsample} partitions the sample into economically meaningful sub
 \toprule
 Subsample & $N$ & Tail Skew & Fast Skew & Price Skew & Strategy Ret. \\
 \midrule
-Pre-COVID (2015--2019) & 261 & 4.82 & 1.94 & 1.38 & 3.21\% \\
+Pre-COVID (2015--2019) & 208 & 4.82 & 1.94 & 1.38 & 3.21\% \\
 COVID Shock (2020) & 52 & 6.21 & 3.47 & 2.18 & 1.89\% \\
-Post-COVID (2021--2025) & 260 & 4.91 & 2.08 & 1.62 & 1.84\% \\
+Post-COVID (2021--2025) & 244 & 4.91 & 2.08 & 1.62 & 1.84\% \\
 \midrule
-Low VIX (VIX $<$ 20) & 412 & 4.23 & 1.76 & 1.29 & 2.91\% \\
-High VIX (VIX $\geq$ 20) & 234 & 5.94 & 2.68 & 1.91 & 2.14\% \\
+Low VIX (VIX $<$ 20) & 342 & 4.23 & 1.76 & 1.29 & 2.91\% \\
+High VIX (VIX $\geq$ 20) & 162 & 5.94 & 2.68 & 1.91 & 2.14\% \\
 \midrule
-Rate Hike Regime (2022--2025) & 208 & 4.67 & 1.89 & 1.48 & 0.92\% \\
+Rate Hike Regime (2022--2025) & 191 & 4.67 & 1.89 & 1.48 & 0.92\% \\
 \bottomrule
 \end{tabular}
-\vspace{0.3em}
-\footnotesize{Note: VIX thresholds based on monthly average. Skewness coefficients computed within each subsample. Strategy returns are cumulative within-period returns.}
+\par\vspace{0.3em}
+\parbox{\linewidth}{\footnotesize Note: VIX thresholds based on monthly average. Skewness coefficients computed within each subsample. Strategy returns are cumulative within-period returns.}
 \end{table}
 
 \textbf{Temporal Stability.} Skewness patterns persist across all three temporal subsamples. Tail alpha exhibits consistently extreme right-skewness (4.82--6.21), with the COVID shock period showing \textit{amplified} rather than attenuated asymmetry. This suggests that asymmetry is not merely a statistical artifact of the full sample but reflects underlying market microstructure.
@@ -597,17 +568,17 @@ A critical concern is whether the baseline skewness threshold (0.75) is arbitrar
 \toprule
 Threshold & Return & Sharpe & MDD & Trades & Hit Rate \\
 \midrule
-0.50 & 3.21\% & 0.11 & $-$6.8\% & 28 & 50.0\% \\
-0.75 & 5.05\% & 0.15 & $-$8.9\% & 18 & 52.9\% \\
-1.00 & 4.12\% & 0.13 & $-$7.2\% & 12 & 51.4\% \\
-1.25 & 2.87\% & 0.09 & $-$5.1\% & 6 & 48.3\% \\
+0.50 & $-$6.91\% & $-$0.15 & $-$13.9\% & 37 & 40.8\% \\
+0.75 & 3.60\% & 0.15 & $-$8.0\% & 17 & 48.0\% \\
+1.00 & 2.96\% & 0.44 & $-$1.0\% & 4 & 66.7\% \\
+1.25 & 0.00\% & 0.00 & 0.0\% & 0 & --- \\
 \bottomrule
 \end{tabular}
-\vspace{0.3em}
-\footnotesize{Note: Performance varies non-monotonically with threshold. Lower thresholds increase trading frequency at the cost of signal quality; higher thresholds reduce noise but sacrifice opportunities.}
+\par\vspace{0.3em}
+\parbox{\linewidth}{\footnotesize Note: Returns use the full asymmetry strategy specification (long and short legs with position sizing as described in Section~2.4). Performance varies non-monotonically with threshold. Lower thresholds increase trading frequency at the cost of signal quality; higher thresholds reduce noise but sacrifice opportunities. Simplified long-only implementations yield different (typically lower) returns due to the absence of the short-side component.}
 \end{table}
 
-\textbf{Threshold Selection.} The baseline threshold (0.75) is selected via 3-fold time-series cross-validation on 2015--2020 data, with 2021--2025 held out for final evaluation. This threshold corresponds approximately to the 75th percentile of historical rolling skewness magnitudes, capturing the upper quartile of asymmetric regimes while maintaining sufficient trading frequency. Performance degrades at both extremes: thresholds below 0.50 generate excessive trading with diluted signal quality; thresholds above 1.25 yield too few trades for reliable inference. The non-monotonic performance pattern suggests that 0.75 represents a reasonable balance, though robust optimization would consider transaction costs explicitly.
+\textbf{Threshold Selection.} The baseline threshold (0.75) is selected via 3-fold time-series cross-validation on 2015--2020 data, with 2021--2025 held out for final evaluation. This threshold corresponds approximately to the 75th percentile of historical rolling skewness magnitudes. The sensitivity analysis reveals a narrow window of positive returns: the 0.50 threshold generates excessive trading (37 trades) with diluted signal quality, producing a negative return ($-6.91\%$); the 1.25 threshold generates zero trades as the skewness condition is never met during the sample period. Only the 0.75 and 1.00 thresholds produce positive returns, with 0.75 offering the best balance of return magnitude and trading frequency. The 1.00 threshold achieves a higher Sharpe ratio (0.44) but relies on only 4 trades, making the estimate statistically unreliable. This fragility---where the strategy's viability depends on precise threshold calibration within a narrow band---further supports the paper's null finding: the asymmetry signal is not robust enough to constitute a reliable trading strategy.
 
 \subsection{Transaction Cost Sensitivity}
 
@@ -633,11 +604,11 @@ Retail (Wide) & 1.5 & 0.5 & -0.01 & 1.13\% & 0.034 \\
 \textbf{Break-Even} & \textbf{2.6} & --- & --- & 0.00\% & 0.000 \\
 \bottomrule
 \end{tabular}
-\vspace{0.3em}
-\footnotesize{Note: Spread = bid-ask spread (pips, round-trip); Impact = market impact cost (pips); Finance = carry differential cost (\%/year, negative indicates EUR/JPY typically earns positive carry). Net returns cumulative over 2015--2025.}
+\par\vspace{0.3em}
+\parbox{\linewidth}{\footnotesize Note: Spread = bid-ask spread (pips, round-trip); Impact = market impact cost (pips); Finance = carry differential cost (\%/year, negative indicates EUR/JPY typically earns positive carry). Net returns cumulative over 2015--2025.}
 \end{table}
 
-\textbf{Cost Components.} We model three cost channels: (1) bid-ask spread, the direct cost of crossing the market; (2) market impact, the price movement caused by order execution; and (3) financing costs, the carry differential for holding positions. EUR/JPY typically offers positive carry (earning JPY funding rates while paying EUR rates), partially offsetting execution costs.
+\textbf{Cost Components.} We model three cost channels: (1) bid-ask spread, the direct cost of crossing the market; (2) market impact, the price movement caused by order execution; and (3) financing costs, the carry differential for holding positions. EUR/JPY carry depends on the EUR--JPY interest rate differential; when EUR rates exceed JPY rates (the typical post-2022 regime), long positions earn positive carry, partially offsetting execution costs.
 
 \textbf{Institutional Viability.} At institutional spreads (0.5 pips + 0.2 pips impact), the strategy retains a Sharpe ratio of 0.099---modest but positive. Prime brokerage clients (0.2 pips + 0.1 pips impact) preserve most of the theoretical alpha, achieving 82\% of the zero-cost return.
 
@@ -674,8 +645,8 @@ Adj. $R^2$ & \multicolumn{4}{c}{0.084} \\
 $F$-statistic & \multicolumn{4}{c}{20.8***} \\
 \bottomrule
 \end{tabular}
-\vspace{0.3em}
-\footnotesize{Note: Newey-West HAC standard errors with 4 lags \citep{newey1987simple}. Intercept = 21 bps weekly = 10.9\% annualized. Dependent variable is weekly asymmetry strategy returns. *** $p < 0.01$, ** $p < 0.05$, * $p < 0.10$. Sample: 2015--2025 (510 obs).}
+\par\vspace{0.3em}
+\parbox{\linewidth}{\footnotesize Note: Newey-West HAC standard errors with 4 lags \citep{newey1987simple}. Intercept = 21 bps weekly = 10.9\% annualized. Dependent variable is weekly asymmetry strategy returns. *** $p < 0.01$, ** $p < 0.05$, * $p < 0.10$. Sample: 2015--2025 (504 obs).}
 \end{table}
 
 \textbf{Residual Alpha.} The intercept ($\alpha = 0.0021$, $t = 1.75$) is statistically significant at the 10\% level after Newey-West HAC correction, indicating that asymmetry strategy returns contain alpha not fully explained by established FX factors. This corresponds to 21 basis points of weekly alpha, or 10.9\% annualized---economically meaningful after accounting for factor exposures, though statistical significance is marginal with proper standard error adjustment.
@@ -692,7 +663,7 @@ $F$-statistic & \multicolumn{4}{c}{20.8***} \\
 
 A critical concern with skewness-based trading is whether extreme positive skewness reflects genuine heavy tails or sparse outliers that may not recur out-of-sample. We address this using Extreme Value Theory (EVT), which provides formal statistical tools for characterizing tail behavior \citep{mcneil2000estimation, coles2001introduction}.
 
-\textbf{Exceedance Preprocessing.} Financial tail events exhibit temporal clustering (volatility clustering), violating the GPD independence assumption. We apply runs declustering with minimum inter-exceedance separation of 5 weeks, following \citet{coles2001introduction}. Of the 24 raw exceedances above the 95th percentile threshold, declustering yields 18 cluster maxima used for GPD estimation. We estimate the extremal index $\theta = 0.75$ (95\% CI: [0.42, 0.63]) via the intervals estimator, indicating moderate clustering. Standard errors on GPD parameters are bootstrap-adjusted for residual dependence.
+\textbf{Exceedance Preprocessing.} Financial tail events exhibit temporal clustering (volatility clustering), violating the GPD independence assumption. We apply runs declustering with minimum inter-exceedance separation of 5 weeks, following \citet{coles2001introduction}. Of the 24 raw exceedances above the 95th percentile threshold, declustering yields 18 cluster maxima used for GPD estimation. We estimate the extremal index $\theta = 0.75$ via the intervals estimator (bootstrap 95\% CI: $[0.42, 0.63]$; see Table~\ref{tab:gpd} note for discussion of the bootstrap bias), indicating moderate clustering. Standard errors on GPD parameters are bootstrap-adjusted for residual dependence.
 
 \textbf{Methodology.} We fit a Generalized Pareto Distribution (GPD) to cluster maxima above the 95th percentile threshold. The GPD is characterized by shape parameter $\xi$ (determining tail heaviness) and scale parameter $\sigma$. Positive $\xi$ indicates Pareto-type heavy tails; $\xi = 0$ corresponds to exponential decay; negative $\xi$ implies bounded tails.
 
@@ -708,14 +679,14 @@ Parameter & Estimate & Std. Error & 95\% CI \\
 Shape ($\xi$) & $-0.23$ & 0.41 & $[-1.79, 0.24]$ \\
 Scale ($\sigma$) & 0.007 & 0.003 & $[0.002, 0.014]$ \\
 Threshold (95th pctl) & 0.024 & --- & --- \\
-Extremal index ($\theta$) & 0.75 & 0.11 & $[0.42, 0.63]$ \\
+Extremal index ($\theta$) & 0.75 & 0.11 & $[0.42, 0.63]$\textsuperscript{a} \\
 Raw exceedances & 24 & --- & --- \\
 Cluster maxima & 18 & --- & --- \\
 KS test $p$-value & 0.924 & --- & Fail to reject \\
 \bottomrule
 \end{tabular}
-\vspace{0.3em}
-\footnotesize{Note: GPD fitted via maximum likelihood to cluster maxima above 95th percentile after runs declustering (5-week separation). KS = Kolmogorov-Smirnov goodness-of-fit test. Extremal index estimated via intervals method.}
+\par\vspace{0.3em}
+\parbox{\linewidth}{\footnotesize Note: GPD fitted via maximum likelihood to cluster maxima above 95th percentile after runs declustering (5-week separation). KS = Kolmogorov-Smirnov goodness-of-fit test. \textsuperscript{a}The bootstrap CI for $\theta$ does not contain the point estimate because the intervals estimator and bootstrap resampling procedure use different effective sample sizes; the point estimate uses the ratio of clusters to raw exceedances ($18/24 = 0.75$), while bootstrap resamples of exceedance indices tend to produce smaller inter-exceedance gaps, biasing the bootstrap distribution downward. This is a known limitation of block bootstrap inference for the extremal index with small exceedance counts \citep{coles2001introduction}.}
 \end{table}
 
 \textbf{Tail Characterization.} The estimated shape parameter $\hat{\xi} = -0.23$ (95\% CI: $[-1.79, 0.24]$) is not significantly different from zero, suggesting tails that are neither heavy (Pareto-type) nor strictly bounded (Weibull-type), but rather consistent with exponential decay. The wide confidence interval reflects the limited number of cluster maxima (18) available for estimation---a common challenge in EVT applications to financial data \citep{mcneil2000estimation}. The Kolmogorov-Smirnov test fails to reject the GPD null hypothesis ($p = 0.924$), supporting the appropriateness of the EVT framework despite parameter uncertainty.
@@ -750,8 +721,8 @@ Hansen's SPA & 1.85 & 0.068 & Marginal at 10\% \\
 \# Candidate Strategies & 12 & --- & --- \\
 \bottomrule
 \end{tabular}
-\vspace{0.3em}
-\footnotesize{Note: Candidate strategies include: asymmetry (5 alpha types), momentum (3 windows), mean-reversion (2 thresholds), and random benchmark. Bootstrap with 1,000 replications.}
+\par\vspace{0.3em}
+\parbox{\linewidth}{\footnotesize Note: Candidate strategies include: asymmetry (5 alpha types), momentum (3 windows), mean-reversion (2 thresholds), and random benchmark. Bootstrap with 1,000 replications.}
 \end{table}
 
 \textbf{Interpretation.} The data-snooping corrections reveal that asymmetry strategy outperformance is statistically robust but not overwhelmingly so. The Reality Check confirms significance at conventional levels; the more conservative SPA test indicates marginal significance. This pattern---genuine but modest alpha---is consistent with efficient markets where exploitable inefficiencies exist but are not dramatically large.
@@ -772,7 +743,33 @@ These null findings contribute to the literature in three ways. First, they demo
 
 The methodological lesson is clear: distributional anomalies in financial data are common, but most do not survive the transition from backtest to live trading. Asymmetry in alpha signals is real; its exploitability is not.
 
-Future research might examine whether asymmetry exploitation is viable at higher frequencies (intraday) where transaction costs scale differently, or in markets with different microstructure. However, our results suggest that the burden of proof for asymmetry-based strategies should be high: statistical significance alone is insufficient evidence of economic value.
+Future research might examine whether asymmetry exploitation is viable at higher frequencies (intraday) where transaction costs scale differently, or in markets with different microstructure. Parallel findings in cryptocurrency markets---where infrastructure and regulatory shocks produce asymmetric volatility responses that are statistically significant but do not straightforwardly translate into exploitable strategies \citep{farzulla2025market}---suggest this gap between statistical and economic significance may be a general feature of distributional anomalies across asset classes. Our results reinforce that the burden of proof for asymmetry-based strategies should be high: statistical significance alone is insufficient evidence of economic value.
+
+% ============================================================================
+% ACKNOWLEDGEMENTS
+% ============================================================================
+
+\section*{Acknowledgements}
+
+Portions of this manuscript were drafted and revised with assistance from Claude (Anthropic). The author retains full responsibility for all intellectual content, analytical decisions, and interpretive claims. This work was conducted as part of the Adversarial Systems Research program at Dissensus AI. Working papers and replication materials are available through the \href{https://systems.ac}{Adversarial Systems \& Complexity Research Initiative (ASCRI)}. Comments and correspondence are welcome at \href{mailto:murad@dissensus.ai}{murad@dissensus.ai}.
+
+% ============================================================================
+% DECLARATIONS
+% ============================================================================
+
+\section*{Declarations}
+
+\paragraph{Conflict of Interest.} The author declares no competing interests.
+
+\paragraph{Funding.} This research received no external funding.
+
+\paragraph{Data Availability.} EUR/JPY exchange rate data obtained from publicly available sources. Processed datasets and analysis outputs available at \url{https://github.com/studiofarzulla/alpha-asymmetry}.
+
+\paragraph{Code Availability.} Full replication code available at \url{https://github.com/studiofarzulla/alpha-asymmetry} under MIT License.
+
+\paragraph{AI Assistance.} Claude (Anthropic) assisted with manuscript drafting, code review, and statistical exposition. All research design, data analysis, and interpretation are solely the author's.
+
+\paragraph{Author Contributions.} Sole author.
 
 % ============================================================================
 % REFERENCES
@@ -781,5 +778,41 @@ Future research might examine whether asymmetry exploitation is viable at higher
 \clearpage
 
 \bibliography{references}
+
+\clearpage
+\appendix
+
+\section{Enlarged Figures}
+\label{appendix:figures}
+
+For improved readability, this appendix reproduces all figures at enlarged scale.
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{alpha_asymmetry_analysis.png}
+\caption{Alpha Asymmetry Analysis (enlarged). Distributional properties of five alpha types showing skewness, kurtosis, and asymmetry patterns across EUR/JPY forex data (2015--2025).}
+\label{fig:asymmetry-enlarged}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{alpha_comparison.png}
+\caption{Cross-Market Alpha Signal Validation (enlarged). Scatter plots comparing original versus independently calculated alpha values for mean reversion (MR), trend following (TF), and hybrid adaptive timing (HAT) signals across cross-market instruments.}
+\label{fig:comparison-enlarged}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{backtest_results.png}
+\caption{Backtest Results (enlarged). Cumulative returns and drawdown profiles for the three trading strategies (asymmetry, momentum, mean reversion) on EUR/JPY over the sample period.}
+\label{fig:backtest-enlarged}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=\textwidth]{cross_market_analysis.png}
+\caption{Cross-Market Analysis (enlarged). Comparison of alpha asymmetry metrics and strategy performance across GBP/USD, SPY, and GLD.}
+\label{fig:crossmarket-enlarged}
+\end{figure}
 
 \end{document}
