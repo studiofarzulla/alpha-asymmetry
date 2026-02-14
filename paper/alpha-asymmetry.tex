@@ -476,9 +476,9 @@ While not exploitable, the asymmetry patterns reveal genuine features of market 
 
 \textbf{Tail Alpha Dynamics}: The extreme skewness and kurtosis of tail alphas reflects ``lottery ticket'' dynamics in extreme events \citep{kumar2009gambles, bali2011maxing}---but the rarity of such events precludes consistent exploitation.
 
-\textbf{Momentum Signal Exhaustion}: The failure of naive momentum strategies, combined with right-skewed fast alphas, suggests momentum signals may be exhausted by the time they manifest in price data \citep{moskowitz2012time}.
+\textbf{Momentum Signal Exhaustion}: The failure of naive momentum strategies, combined with right-skewed fast alphas, suggests momentum signals may be exhausted by the time they manifest in price data \citep{moskowitz2012time}, a pattern consistent with the crash risk dynamics documented by \citet{daniel2016momentum} in equity momentum portfolios.
 
-\textbf{Crash Risk in Hedges}: Left-skewed hedge alphas suggest correlation breakdowns occur more severely in adverse conditions, consistent with ``correlations go to 1 in a crisis'' observations \citep{burnside2011carry}.
+\textbf{Crash Risk in Hedges}: Left-skewed hedge alphas suggest correlation breakdowns occur more severely in adverse conditions, consistent with the carry trade crash risk mechanisms identified by \citet{brunnermeier2009carry} and the peso problem dynamics in \citet{burnside2011carry}.
 
 \subsection{Limitations}
 
@@ -618,7 +618,7 @@ Retail (Wide) & 1.5 & 0.5 & -0.01 & 1.13\% & 0.034 \\
 
 \subsection{Factor Attribution}
 
-A critical concern is whether asymmetry alpha merely proxies for known FX risk factors. Prior work documents systematic risk premia in currency markets associated with carry \citep{lustig2011common}, momentum \citep{menkhoff2012currency}, and the dollar factor \citep{verdelhan2018dollar}. If asymmetry signals simply load on these factors, our contribution reduces to factor timing rather than genuine alpha discovery.
+A critical concern is whether asymmetry alpha merely proxies for known FX risk factors. Prior work documents systematic risk premia in currency markets associated with carry \citep{lustig2011common}, momentum \citep{menkhoff2012currency}, and the dollar factor \citep{verdelhan2018dollar}, with \citet{lettau2014conditional} showing that downside risk conditioning explains a substantial portion of currency risk premia across asset classes. A parallel factor decomposition approach applied to cryptocurrency markets \citep{farzulla2025whitepaper} similarly finds that structural factors dominate idiosyncratic signal variation. If asymmetry signals simply load on these factors, our contribution reduces to factor timing rather than genuine alpha discovery.
 
 We regress asymmetry strategy returns on established FX factors:
 \begin{equation}
